@@ -11,6 +11,8 @@
   padding: 1rem;
 }
 
-.rank-image {
-  mix-blend-mode: multiply;
+.info-subcontainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
