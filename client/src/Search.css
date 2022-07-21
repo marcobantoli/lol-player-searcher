@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15rem;
+  gap: 2rem;
+}
+
+.sylink-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: blue;
+  font-weight: 800;
+  font-size: 2rem;
+}
+
+.search-bar {
+  border-radius: 20px;
+  width: 25%;
+  height: 1.5rem;
+  padding: 0.5rem;
+}

@@ -1,0 +1,16 @@
+.info-container {
+  display: flex;
+  gap: 1rem;
+  border: 3px solid black;
+  width: 20%;
+  height: 10rem;
+  margin: 15rem auto;
+  background-color: lightblue;
+  font-size: 2rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 1rem;
+}
+
+.rank-image {
+  mix-blend-mode: multiply;
+}
