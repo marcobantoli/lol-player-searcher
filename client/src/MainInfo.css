@@ -1,0 +1,21 @@
+.main-info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 2em;
+  margin-top: 4em;
+  margin-left: 2em;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 25%;
+}
+
+.summoner-name {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2em;
+}
+
+.player-level {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1em;
+}

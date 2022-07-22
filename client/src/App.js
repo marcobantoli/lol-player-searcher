@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const [player, setPlayer] = useState(null);
-  const [failedFetch, setFailedFetch] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleSearch(e, navigate) {
@@ -18,14 +17,8 @@ function App() {
         const playerData = await response.json();
         setIsLoading(false);
 
-        if (!playerData) {
-          setFailedFetch(true);
-        } else {
-          setFailedFetch(false);
-        }
-
         setPlayer(playerData);
-        navigate(playerName);
+        navigate(`/${playerName}`);
       })();
     }
   }
@@ -34,7 +27,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={!isLoading ? <Home handleSearch={handleSearch} /> : <div>Loading...</div>} />
-        <Route path="/:name" element={!failedFetch ? <PlayerProfile player={player} /> : <div>Could not find the summoner</div>}/>
+        <Route path="/:name" element={<PlayerProfile player={player} handleSearch={handleSearch} />}/>
       </Routes>
     </Router>
   );

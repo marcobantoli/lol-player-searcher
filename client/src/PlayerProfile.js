@@ -1,12 +1,13 @@
 import React from 'react';
 import PlayerInfo from './PlayerInfo';
-import './PlayerProfile.css';
+import Navbar from './Navbar';
 
-function PlayerProfile({ player }) {
+function PlayerProfile({ player, handleSearch }) {
   return (
-    <div className="profile-container">
-      <PlayerInfo player={player} />
-    </div>
+    <>
+      <Navbar handleSearch={handleSearch} />
+      {player ? <PlayerInfo player={player} /> : <div>Could not find the summoner</div>}
+    </>
   );
 }
 
