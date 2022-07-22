@@ -12,6 +12,8 @@ app.get("/api/:player", async (req, res) => {
   const playerData = await api.get('na1', 'summoner.getBySummonerName', req.params.player);
   if (playerData) {
     res.json({ summonerName: playerData.name, level: playerData.summonerLevel, iconId: playerData.profileIconId });
+  } else {
+    res.json(null);
   }
 });
 
