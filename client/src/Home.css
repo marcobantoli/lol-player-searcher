@@ -2,20 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15rem;
-  gap: 2rem;
+  margin-top: 12rem;
+  gap: 1rem;
 }
 
 .sylink-text {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: blue;
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  color: darkblue;
 }
 
 .search-bar {
-  border-radius: 20px;
+  border-radius: 10px;
   width: 25%;
   height: 1.5rem;
   padding: 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1rem;
+}
+
+.search-bar:focus {
+  background-color: #585858;
+  color: white;
 }
