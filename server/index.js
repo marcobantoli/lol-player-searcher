@@ -7,13 +7,12 @@ const API_KEY = 'RGAPI-25ea51a9-e053-4a64-891c-14482425c6c0';
 const app = express();
 
 let api = TeemoJS(API_KEY);
-let playerData;
 
-api.get('na1', 'summoner.getBySummonerName', 'Garry Brar')
-  .then(data => playerData = { name: data.name, level: data.summonerLevel, iconId: data.profileIconId });
-
-app.get("/api", (req, res) => {
-  res.json({ summonerName: playerData.name, level: playerData.level, iconId: playerData.iconId });
+app.get("/api/:player", async (req, res) => {
+  const playerData = await api.get('na1', 'summoner.getBySummonerName', req.params.player);
+  if (playerData) {
+    res.json({ summonerName: playerData.name, level: playerData.summonerLevel, iconId: playerData.profileIconId });
+  }
 });
 
 app.listen(PORT, () => {

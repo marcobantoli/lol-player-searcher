@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     (async () => {
       if (player) {
-        const response = await fetch("/api");
+        const response = await fetch(`/api/${player}`);
         const data = await response.json();
         setPlayer(data);
       }
