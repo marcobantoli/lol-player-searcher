@@ -2,16 +2,36 @@ const express = require("express");
 const TeemoJS = require('teemojs');
 
 const PORT = process.env.PORT || 3001;
-const API_KEY = 'RGAPI-25ea51a9-e053-4a64-891c-14482425c6c0';
+const API_KEY = 'RGAPI-e0ac8658-bf1c-4051-8f80-fcbc49b7e971';
 
 const app = express();
-
-let api = TeemoJS(API_KEY);
+const api = TeemoJS(API_KEY);
 
 app.get("/api/:player", async (req, res) => {
   const playerData = await api.get('na1', 'summoner.getBySummonerName', req.params.player);
+  
   if (playerData) {
-    res.json({ summonerName: playerData.name, level: playerData.summonerLevel, iconId: playerData.profileIconId });
+    const rankData = await api.get('na1', 'league.getLeagueEntriesForSummoner', playerData.id);
+    const matchIds = await api.get('americas', 'match.getMatchIdsByPUUID', playerData.puuid);
+    const matches = [];
+
+    let i = 0;
+    while (i < matchIds.length && i < 5) {
+      const match = await api.get('americas', 'match.getMatch', matchIds[i]);
+      matches.push(match);
+      i++;
+    }
+
+    res.json({
+      summonerName: playerData.name, 
+      level: playerData.summonerLevel, 
+      iconId: playerData.profileIconId,
+      tier: rankData[1].tier,
+      rank: rankData[1].rank,
+      lp: rankData[1].leaguePoints,
+      wins: rankData[1].wins,
+      losses: rankData[1].losses
+    });
   } else {
     res.json(null);
   }
