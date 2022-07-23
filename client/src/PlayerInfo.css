@@ -1,17 +1,14 @@
-.info-container {
-  display: flex;
-  gap: 1rem;
-  border: 3px solid black;
-  width: 20%;
-  height: 10rem;
-  background-color: lightblue;
-  font-size: 2rem;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  padding: 1rem;
-}
-
-.info-subcontainer {
+.player-info-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  margin-top: 4em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 2em;
+}
+
+.subcontainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 2em;
 }

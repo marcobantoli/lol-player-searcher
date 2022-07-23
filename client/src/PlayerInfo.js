@@ -6,10 +6,12 @@ import './PlayerInfo.css';
 
 function PlayerInfo({ player }) {
   return (
-    <div>
+    <div className="player-info-container">
       <MainInfo player={player} />
-      <RankedStats />
-      <MatchList />
+      <div className="subcontainer">
+        <RankedStats player={player} />
+        <MatchList />
+      </div>
     </div>
   );
 }

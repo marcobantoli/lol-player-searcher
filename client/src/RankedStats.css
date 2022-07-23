@@ -1,0 +1,22 @@
+.ranked-stats-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 5px;
+  gap: 1em;
+  width: 20em;
+  height: 10em;
+  border: 1px solid black;
+}
+
+.upper-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 2em;
+  font-size: 1.1em;
+}
+
+.lower-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8em;
+}
