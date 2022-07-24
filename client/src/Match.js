@@ -6,7 +6,7 @@ function Match({ stats }) {
   return (
     <div className={`match-container ${stats.wonGame ? "blue" : "red"}`}>
       <div>
-        <img width="80" height="80" src={`http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${stats.champion}.png`} alt="Champion image" />
+        <img width="80" height="80" src={`http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${stats.champion}.png`} alt="Champion" />
         <div className="champion-text">{stats.champion}</div>
       </div>
       <div className="kda-text">

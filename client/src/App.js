@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PlayerProfile from './PlayerProfile';
 import Home from './Home';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Loading from './Loading'
 
 function App() {
   const [player, setPlayer] = useState(null);
@@ -26,8 +27,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={!isLoading ? <Home handleSearch={handleSearch} /> : <div>Loading...</div>} />
-        <Route path="/:name" element={<PlayerProfile player={player} handleSearch={handleSearch} />}/>
+        <Route path="/" element={!isLoading ? <Home handleSearch={handleSearch} /> : <Loading />} />
+        <Route path="/:name" element={!isLoading ? <PlayerProfile player={player} handleSearch={handleSearch} /> : <Loading />}/>
       </Routes>
     </Router>
   );

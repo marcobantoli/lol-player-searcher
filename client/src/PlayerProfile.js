@@ -7,7 +7,7 @@ function PlayerProfile({ player, handleSearch }) {
   return (
     <div className="player-profile-container">
       <Navbar handleSearch={handleSearch} />
-      {player ? <PlayerInfo player={player} /> : <div>Could not find the summoner</div>}
+      {player ? <PlayerInfo player={player} /> : <div className="failed-fetch">Could not find the summoner</div>}
     </div>
   );
 }
