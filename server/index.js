@@ -35,11 +35,11 @@ app.get("/api/:player", async (req, res) => {
       summonerName: playerData.name, 
       level: playerData.summonerLevel, 
       iconId: playerData.profileIconId,
-      tier: rankData[1].tier,
-      rank: rankData[1].rank,
-      lp: rankData[1].leaguePoints,
-      wins: rankData[1].wins,
-      losses: rankData[1].losses,
+      tier: rankData[0].tier,
+      rank: rankData[0].rank,
+      lp: rankData[0].leaguePoints,
+      wins: rankData[0].wins,
+      losses: rankData[0].losses,
       matchHistory: matches
     });
   } else {
