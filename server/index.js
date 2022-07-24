@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const TeemoJS = require('teemojs');
 
 const PORT = process.env.PORT || 3001;
-const API_KEY = 'RGAPI-e0ac8658-bf1c-4051-8f80-fcbc49b7e971';
+const API_KEY = process.env.RIOT_API_KEY;
 
 const app = express();
 const api = TeemoJS(API_KEY);
@@ -18,7 +19,15 @@ app.get("/api/:player", async (req, res) => {
     let i = 0;
     while (i < matchIds.length && i < 5) {
       const match = await api.get('americas', 'match.getMatch', matchIds[i]);
-      matches.push(match);
+      const player = match.info.participants.find(participant => participant.summonerName === playerData.name);
+      const playerGameStats = { 
+        assists: player.assists,
+        champion: player.championName,
+        deaths: player.deaths,
+        kills: player.kills,
+        wonGame: player.win
+      }
+      matches.push(playerGameStats);
       i++;
     }
 
@@ -30,7 +39,8 @@ app.get("/api/:player", async (req, res) => {
       rank: rankData[1].rank,
       lp: rankData[1].leaguePoints,
       wins: rankData[1].wins,
-      losses: rankData[1].losses
+      losses: rankData[1].losses,
+      matchHistory: matches
     });
   } else {
     res.json(null);

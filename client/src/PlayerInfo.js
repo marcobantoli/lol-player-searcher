@@ -10,7 +10,7 @@ function PlayerInfo({ player }) {
       <MainInfo player={player} />
       <div className="subcontainer">
         <RankedStats player={player} />
-        <MatchList />
+        <MatchList player={player} />
       </div>
     </div>
   );

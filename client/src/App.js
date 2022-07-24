@@ -16,8 +16,6 @@ function App() {
         const response = await fetch(`/api/${playerName}`);
         const playerData = await response.json();
         setIsLoading(false);
-        
-        console.log(playerData);
 
         setPlayer(playerData);
         navigate(`/${playerName}`);
