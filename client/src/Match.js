@@ -2,17 +2,18 @@ import React from 'react'
 import './Match.css';
 
 function Match({ stats }) {
+  console.log(stats.win);
   return (
-    <div className="match-container">
+    <div className={`match-container ${stats.wonGame ? "blue" : "red"}`}>
       <div>
-        <img src="" alt="Champion image" />
-        <div>{stats.champion}</div>
+        <img width="80" height="80" src={`http://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/${stats.champion}.png`} alt="Champion image" />
+        <div className="champion-text">{stats.champion}</div>
       </div>
-      <div>
-        {`${stats.kills}/${stats.deaths}/${stats.assists}`}
+      <div className="kda-text">
+        {`KDA: ${stats.kills} / ${stats.deaths} / ${stats.assists}`}
       </div>
-      <div>
-        {stats.win ? <div>WIN</div> : <div>LOSS</div>}
+      <div className="game-result-text">
+        {stats.wonGame ? <div>WIN</div> : <div>LOSS</div>}
       </div>
     </div>
   );

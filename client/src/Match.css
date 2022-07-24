@@ -1,11 +1,33 @@
 .match-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   height: 7em;
   border: 1px solid black;
   border-radius: 10px;
+  padding-left: 1em;
+  padding-right: 3em;
 }
 
-.matches-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+.kda-text, .game-result-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.3em;
+}
+
+.game-result-text {
+  font-weight: 800;
+}
+
+.champion-text {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 0.8em;
+}
+
+.blue {
+  background-color: lightblue;
+}
+
+.red {
+  background-color: orange;
 }
