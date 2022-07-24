@@ -6,3 +6,9 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2em;
 }
+
+.matches-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
